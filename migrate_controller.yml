@@ -1,0 +1,280 @@
+---
+# Based on https://github.com/ames7/controller_config/blob/main/import_controller.yml
+- name: Migrate Controller Configs
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  tasks:
+    - name: Export Controller Notification Templates
+      awx.awx.export:
+        notification_templates: ['all']
+        controller_host: "{{controller_host_src}}"
+        controller_username: "{{controller_user_src}}"
+        controller_password: "{{controller_pwd_src}}"
+        #controller_oauthtoken: "{{controller_token_src}}"
+        validate_certs: False
+      register: controller_notification_templates
+      tags: Notification Templates
+
+    - name: Import Controller Notification Templates
+      awx.awx.import:
+        assets: "{{ controller_notification_templates.assets }}"
+        controller_host: "{{controller_host_dest}}"
+        controller_username: "{{controller_user_dest}}"
+        controller_password: "{{controller_pwd_dest}}"
+        #controller_oauthtoken: "{{controller_token_dest}}"
+        validate_certs: False
+      tags: Notification Templates
+
+    - name: Export Controller Execution Environments
+      awx.awx.export:
+        execution_environments: ['all']
+        controller_host: "{{controller_host_src}}"
+        controller_username: "{{controller_user_src}}"
+        controller_password: "{{controller_pwd_src}}"
+        #controller_oauthtoken: "{{controller_token_src}}"
+        validate_certs: False
+      register: controller_execution_environments
+      tags: Execution Environments
+
+    - name: Import Controller Execution Environments
+      awx.awx.import:
+        assets: "{{ controller_execution_environments.assets }}"
+        controller_host: "{{controller_host_dest}}"
+        controller_username: "{{controller_user_dest}}"
+        controller_password: "{{controller_pwd_dest}}"
+        #controller_oauthtoken: "{{controller_token_dest}}"
+        validate_certs: False
+      tags: Execution Environments
+
+    - name: Export Controller Organizations
+      awx.awx.export:
+        organizations: ['all']
+        controller_host: "{{controller_host_src}}"
+        controller_username: "{{controller_user_src}}"
+        controller_password: "{{controller_pwd_src}}"
+        #controller_oauthtoken: "{{controller_token_src}}"
+        validate_certs: False
+      register: controller_organizations
+      tags: Organizations
+
+    - name: Import Controller Organizations
+      awx.awx.import:
+        assets: "{{ controller_organizations.assets }}"
+        controller_host: "{{controller_host_dest}}"
+        controller_username: "{{controller_user_dest}}"
+        controller_password: "{{controller_pwd_dest}}"
+        #controller_oauthtoken: "{{controller_token_dest}}"
+        validate_certs: False
+      tags: Organizations
+
+    - name: Export Controller Teams
+      awx.awx.export:
+        teams: ['all']
+        controller_host: "{{controller_host_src}}"
+        controller_username: "{{controller_user_src}}"
+        controller_password: "{{controller_pwd_src}}"
+        #controller_oauthtoken: "{{controller_token_src}}"
+        validate_certs: False
+      register: controller_teams
+      tags: Teams
+
+    - name: Import Controller Teams
+      awx.awx.import:
+        assets: "{{ controller_teams.assets }}"
+        controller_host: "{{controller_host_dest}}"
+        controller_username: "{{controller_user_dest}}"
+        controller_password: "{{controller_pwd_dest}}"
+        #controller_oauthtoken: "{{controller_token_dest}}"
+        validate_certs: False
+      tags: Teams
+
+    - name: Export Controller Users
+      awx.awx.export:
+        users: ['all']
+        controller_host: "{{controller_host_src}}"
+        controller_username: "{{controller_user_src}}"
+        controller_password: "{{controller_pwd_src}}"
+        #controller_oauthtoken: "{{controller_token_src}}"
+        validate_certs: False
+      register: controller_users
+      tags: Users
+
+    - name: Import Controller Users
+      awx.awx.import:
+        assets: "{{ controller_users.assets }}"
+        controller_host: "{{controller_host_dest}}"
+        controller_username: "{{controller_user_dest}}"
+        controller_password: "{{controller_pwd_dest}}"
+        #controller_oauthtoken: "{{controller_token_dest}}"
+        validate_certs: False
+      tags: Users
+
+    - name: Export Controller Credential Types
+      awx.awx.export:
+        credential_types: ['all']
+        controller_host: "{{controller_host_src}}"
+        controller_username: "{{controller_user_src}}"
+        controller_password: "{{controller_pwd_src}}"
+        #controller_oauthtoken: "{{controller_token_src}}"
+        validate_certs: False
+      register: controller_credential_types
+      tags: Credential Types
+
+    - name: Import Controller Credential Types
+      awx.awx.import:
+        assets: "{{ controller_credential_types.assets }}"
+        controller_host: "{{controller_host_dest}}"
+        controller_username: "{{controller_user_dest}}"
+        controller_password: "{{controller_pwd_dest}}"
+        #controller_oauthtoken: "{{controller_token_dest}}"
+        validate_certs: False
+      tags: Credential Types
+
+    - name: Export Controller Credentials
+      awx.awx.export:
+        credentials: ['all']
+        controller_host: "{{controller_host_src}}"
+        controller_username: "{{controller_user_src}}"
+        controller_password: "{{controller_pwd_src}}"
+        #controller_oauthtoken: "{{controller_token_src}}"
+        validate_certs: False
+      register: controller_credentials
+      tags: Credentials
+
+    - name: Import Controller Credentials
+      awx.awx.import:
+        assets: "{{ controller_credentials.assets }}"
+        controller_host: "{{controller_host_dest}}"
+        controller_username: "{{controller_user_dest}}"
+        controller_password: "{{controller_pwd_dest}}"
+        #controller_oauthtoken: "{{controller_token_dest}}"
+        validate_certs: False
+      tags: Credentials
+
+    - name: Export Controller Projects
+      awx.awx.export:
+        projects: ['all']
+        controller_host: "{{controller_host_src}}"
+        controller_username: "{{controller_user_src}}"
+        controller_password: "{{controller_pwd_src}}"
+        #controller_oauthtoken: "{{controller_token_src}}"
+        validate_certs: False
+      register: controller_projects
+      tags: Projects
+
+    - name: Import Controller Projects
+      awx.awx.import:
+        assets: "{{ controller_projects.assets }}"
+        controller_host: "{{controller_host_dest}}"
+        controller_username: "{{controller_user_dest}}"
+        controller_password: "{{controller_pwd_dest}}"
+        #controller_oauthtoken: "{{controller_token_dest}}"
+        validate_certs: False
+      tags: Projects
+
+    - name: Export Controller Inventory
+      awx.awx.export:
+        inventory: ['all']
+        controller_host: "{{controller_host_src}}"
+        controller_username: "{{controller_user_src}}"
+        controller_password: "{{controller_pwd_src}}"
+        #controller_oauthtoken: "{{controller_token_src}}"
+        validate_certs: False
+      register: controller_inventory
+      tags: Inventory
+
+    - name: Import Controller Inventory
+      awx.awx.import:
+        assets: "{{ controller_inventory.assets }}"
+        controller_host: "{{controller_host_dest}}"
+        controller_username: "{{controller_user_dest}}"
+        controller_password: "{{controller_pwd_dest}}"
+        #controller_oauthtoken: "{{controller_token_dest}}"
+        validate_certs: False
+      tags: Inventory
+
+    - name: Export Controller Inventory Sources
+      awx.awx.export:
+        inventory_sources: ['all']
+        controller_host: "{{controller_host_src}}"
+        controller_username: "{{controller_user_src}}"
+        controller_password: "{{controller_pwd_src}}"
+        #controller_oauthtoken: "{{controller_token_src}}"
+        validate_certs: False
+      register: controller_inventory_sources
+      tags: Inventory Sources
+
+    - name: Import Controller Inventory Sources
+      awx.awx.import:
+        assets: "{{ controller_inventory_sources.assets }}"
+        controller_host: "{{controller_host_dest}}"
+        controller_username: "{{controller_user_dest}}"
+        controller_password: "{{controller_pwd_dest}}"
+        #controller_oauthtoken: "{{controller_token_dest}}"
+        validate_certs: False
+      tags: Inventory Sources
+
+    - name: Export Controller Job Templates
+      awx.awx.export:
+        job_templates: ['all']
+        controller_host: "{{controller_host_src}}"
+        controller_username: "{{controller_user_src}}"
+        controller_password: "{{controller_pwd_src}}"
+        #controller_oauthtoken: "{{controller_token_src}}"
+        validate_certs: False
+      register: controller_job_templates
+      tags: Job Templates
+
+    - name: Import Controller Job Templates
+      awx.awx.import:
+        assets: "{{ controller_job_templates.assets }}"
+        controller_host: "{{controller_host_dest}}"
+        controller_username: "{{controller_user_dest}}"
+        controller_password: "{{controller_pwd_dest}}"
+        #controller_oauthtoken: "{{controller_token_dest}}"
+        validate_certs: False
+      tags: Job Templates
+
+    - name: Export Controller Workflow Job Templates
+      awx.awx.export:
+        workflow_job_templates: ['all']
+        controller_host: "{{controller_host_src}}"
+        controller_username: "{{controller_user_src}}"
+        controller_password: "{{controller_pwd_src}}"
+        #controller_oauthtoken: "{{controller_token_src}}"
+        validate_certs: False
+      register: controller_workflow_job_templates
+      tags: Workflow Job Templates
+
+    - name: Import Controller Workflow Job Templates
+      awx.awx.import:
+        assets: "{{ controller_workflow_job_templates.assets }}"
+        controller_host: "{{controller_host_dest}}"
+        controller_username: "{{controller_user_dest}}"
+        controller_password: "{{controller_pwd_dest}}"
+        #controller_oauthtoken: "{{controller_token_dest}}"
+        validate_certs: False
+      tags: Workflow Job Templates
+
+    - name: Export Controller Schedules
+      awx.awx.export:
+        schedules: ['all']
+        controller_host: "{{controller_host_src}}"
+        controller_username: "{{controller_user_src}}"
+        controller_password: "{{controller_pwd_src}}"
+        #controller_oauthtoken: "{{controller_token_src}}"
+        validate_certs: False
+      register: controller_schedules
+      tags: Schedules
+
+    - name: Import Controller Schedules
+      awx.awx.import:
+        assets: "{{ controller_schedules.assets }}"
+        controller_host: "{{controller_host_dest}}"
+        controller_username: "{{controller_user_dest}}"
+        controller_password: "{{controller_pwd_dest}}"
+        #controller_oauthtoken: "{{controller_token_dest}}"
+        validate_certs: False
+      tags: Schedules
