@@ -1,0 +1,26 @@
+---
+# Based on https://github.com/ames7/controller_config/blob/main/import_controller.yml
+- name: Migrate All Controller Assets
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  tasks:
+    - name: Export All Controller assets
+      awx.awx.export:
+        all: true
+        controller_host: "{{ controller_host_src }}"
+        controller_username: "{{ controller_user_src }}"
+        controller_password: "{{ controller_pwd_src }}"
+        #controller_oauthtoken: "{{ controller_token_src }}"
+        validate_certs: False
+      register: controller_all_assets
+
+    - name: Import All Controller assets
+      awx.awx.import:
+        assets: "{{ controller_all_assets.assets }}"
+        controller_host: "{{ controller_host_dest }}"
+        controller_username: "{{ controller_user_dest }}"
+        controller_password: "{{ controller_pwd_dest }}"
+        #controller_oauthtoken: "{{ controller_token_dest }}"
+        validate_certs: False

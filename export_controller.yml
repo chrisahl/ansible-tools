@@ -1,0 +1,39 @@
+---
+- name: Export Controller Assets
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  tasks:
+    - name: Set output filename
+      ansible.builtin.set_fact:
+        output_filename: output_controller_assets.yml
+
+    - name: Export assets
+      awx.awx.export:
+        all: true
+        # applications: ['all']
+        # credential_types: ['all']
+        # credentials: ['all']
+        # execution_environments: ['all']
+        # inventory: ['all']
+        # inventory_sources: ['all']
+        # job_templates: ['all']
+        # notification_templates: ['all']
+        # organizations: ['all']
+        # projects: ['all']
+        # schedules: ['all']
+        # teams: ['all']
+        # users: ['all']
+        # workflow_job_templates: ['all']
+        controller_host: "{{ controller_host_src }}"
+        controller_username: "{{ controller_user_src }}"
+        controller_password: "{{ controller_pwd_src }}"
+        #controller_oauthtoken: "{{ controller_token_src }}"
+        validate_certs: False
+      register: export_all_results
+
+    - name: Export all assets to file {{ output_filename }}
+      copy:
+        content: "{{ export_all_results | to_nice_yaml( width=50, explicit_start=True, explicit_end=True) }}"
+        dest: "{{ output_filename }}"

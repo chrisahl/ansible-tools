@@ -1,6 +1,6 @@
 ---
 # Based on https://github.com/ames7/controller_config/blob/main/import_controller.yml
-- name: Migrate Controller Configs
+- name: Migrate Controller Assets
   hosts: localhost
   connection: local
   gather_facts: false

@@ -1,0 +1,44 @@
+---
+- name: Load dummy data into controller
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  tasks:
+    - name: Add Users
+      loop:
+        - UserA
+        - UserB
+        - UserC
+        - UserD
+        - UserE
+      awx.awx.user:
+        email: "{{item}}@example.com"
+        first_name: "First{{item}}"
+        last_name: "Last{{item}}"
+        password: "MyPastWurd{{item}}"   # notsecret
+        username: "{{item}}"
+        controller_host: "{{controller_host_src}}"
+        controller_username: "{{controller_user_src}}"
+        controller_password: "{{controller_pwd_src}}"
+        #controller_oauthtoken: "{{controller_token_src}}"
+        validate_certs: False
+      tags: Users
+
+    - name: Add Super Users
+      loop:
+        - SuperUserA
+        - SuperUserB
+      awx.awx.user:
+        email: "{{item}}@example.com"
+        first_name: "First{{item}}"
+        is_superuser: true
+        last_name: "Last{{item}}"
+        password: "MyPastWurd{{item}}"    # notsecret
+        username: "{{item}}"
+        controller_host: "{{controller_host_src}}"
+        controller_username: "{{controller_user_src}}"
+        controller_password: "{{controller_pwd_src}}"
+        #controller_oauthtoken: "{{controller_token_src}}"
+        validate_certs: False
+      tags: Users
