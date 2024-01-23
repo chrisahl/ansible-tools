@@ -7,10 +7,26 @@ on:
     branches: ["main"]
 
 jobs:
-  build:
-    name: Ansible Lint # Naming the build is important to use it as a status check
+  ansible-lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout sources
+        uses: actions/checkout@v2
+
+      - name: Setup python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+          architecture: x64
+
+      - name: Install ansible-lint
+        run: pip install ansible-lint
+
+      - name: Install ansible collections
+        run: ansible-galaxy collection install --timeout 120 -r requirements.yml
+
+      - name: Install python dependancies
+        run: pip install -r requirements.txt
+
       - name: Run ansible-lint
-        uses: ansible/ansible-lint@main # or version tag instead of 'main'
+        run: ansible-lint
