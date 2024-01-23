@@ -22,7 +22,7 @@
         controller_username: "{{ controller_user_src }}"
         controller_password: "{{ controller_pwd_src }}"
         # controller_oauthtoken: "{{ controller_token_src }}"
-        validate_certs: False
+        validate_certs: false
       tags: Users
 
     - name: Add Super Users
@@ -40,7 +40,7 @@
         controller_username: "{{ controller_user_src }}"
         controller_password: "{{ controller_pwd_src }}"
         # controller_oauthtoken: "{{ controller_token_src }}"
-        validate_certs: False
+        validate_certs: false
       tags: Users
 
     - name: Add Organizations
@@ -57,10 +57,10 @@
         controller_username: "{{ controller_user_src }}"
         controller_password: "{{ controller_pwd_src }}"
         # controller_oauthtoken: "{{ controller_token_src }}"
-        validate_certs: False
+        validate_certs: false
       tags:
-      - Organizations
-      - Teams
+        - Organizations
+        - Teams
 
     - name: Add Teams
       loop:
@@ -76,5 +76,5 @@
         controller_username: "{{ controller_user_src }}"
         controller_password: "{{ controller_pwd_src }}"
         # controller_oauthtoken: "{{ controller_token_src }}"
-        validate_certs: False
+        validate_certs: false
       tags: Teams

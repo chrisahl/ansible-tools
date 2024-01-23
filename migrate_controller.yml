@@ -13,7 +13,7 @@
         controller_username: "{{ controller_user_src }}"
         controller_password: "{{ controller_pwd_src }}"
         # controller"_oauthtoken: "{{ controller_token_src }}"
-        validate_certs: False
+        validate_certs: false
       register: controller_notification_templates
       tags: Notification Templates
 
@@ -24,7 +24,7 @@
         controller_username: "{{ controller_user_dest }}"
         controller_password: "{{ controller_pwd_dest }}"
         # controller"_oauthtoken: "{{ controller_token_dest }}"
-        validate_certs: False
+        validate_certs: false
       tags: Notification Templates
 
     - name: Export Controller Execution Environments
@@ -34,7 +34,7 @@
         controller_username: "{{ controller_user_src }}"
         controller_password: "{{ controller_pwd_src }}"
         # controller"_oauthtoken: "{{ controller_token_src }}"
-        validate_certs: False
+        validate_certs: false
       register: controller_execution_environments
       tags: Execution Environments
 
@@ -45,7 +45,7 @@
         controller_username: "{{ controller_user_dest }}"
         controller_password: "{{ controller_pwd_dest }}"
         # controller"_oauthtoken: "{{ controller_token_dest }}"
-        validate_certs: False
+        validate_certs: false
       tags: Execution Environments
 
     - name: Export Controller Organizations
@@ -55,7 +55,7 @@
         controller_username: "{{ controller_user_src }}"
         controller_password: "{{ controller_pwd_src }}"
         # controller"_oauthtoken: "{{ controller_token_src }}"
-        validate_certs: False
+        validate_certs: false
       register: controller_organizations
       tags: Organizations
 
@@ -66,7 +66,7 @@
         controller_username: "{{ controller_user_dest }}"
         controller_password: "{{ controller_pwd_dest }}"
         # controller"_oauthtoken: "{{ controller_token_dest }}"
-        validate_certs: False
+        validate_certs: false
       tags: Organizations
 
     - name: Export Controller Teams
@@ -76,7 +76,7 @@
         controller_username: "{{ controller_user_src }}"
         controller_password: "{{ controller_pwd_src }}"
         # controller"_oauthtoken: "{{ controller_token_src }}"
-        validate_certs: False
+        validate_certs: false
       register: controller_teams
       tags: Teams
 
@@ -87,7 +87,7 @@
         controller_username: "{{ controller_user_dest }}"
         controller_password: "{{ controller_pwd_dest }}"
         # controller"_oauthtoken: "{{ controller_token_dest }}"
-        validate_certs: False
+        validate_certs: false
       tags: Teams
 
     - name: Export Controller Users
@@ -97,7 +97,7 @@
         controller_username: "{{ controller_user_src }}"
         controller_password: "{{ controller_pwd_src }}"
         # controller"_oauthtoken: "{{ controller_token_src }}"
-        validate_certs: False
+        validate_certs: false
       register: controller_users
       tags: Users
 
@@ -108,7 +108,7 @@
         controller_username: "{{ controller_user_dest }}"
         controller_password: "{{ controller_pwd_dest }}"
         # controller"_oauthtoken: "{{ controller_token_dest }}"
-        validate_certs: False
+        validate_certs: false
       tags: Users
 
     - name: Export Controller Credential Types
@@ -118,7 +118,7 @@
         controller_username: "{{ controller_user_src }}"
         controller_password: "{{ controller_pwd_src }}"
         # controller"_oauthtoken: "{{ controller_token_src }}"
-        validate_certs: False
+        validate_certs: false
       register: controller_credential_types
       tags: Credential Types
 
@@ -129,7 +129,7 @@
         controller_username: "{{ controller_user_dest }}"
         controller_password: "{{ controller_pwd_dest }}"
         # controller"_oauthtoken: "{{ controller_token_dest }}"
-        validate_certs: False
+        validate_certs: false
       tags: Credential Types
 
     - name: Export Controller Credentials
@@ -139,7 +139,7 @@
         controller_username: "{{ controller_user_src }}"
         controller_password: "{{ controller_pwd_src }}"
         # controller"_oauthtoken: "{{ controller_token_src }}"
-        validate_certs: False
+        validate_certs: false
       register: controller_credentials
       tags: Credentials
 
@@ -150,7 +150,7 @@
         controller_username: "{{ controller_user_dest }}"
         controller_password: "{{ controller_pwd_dest }}"
         # controller"_oauthtoken: "{{ controller_token_dest }}"
-        validate_certs: False
+        validate_certs: false
       tags: Credentials
 
     - name: Export Controller Projects
@@ -160,7 +160,7 @@
         controller_username: "{{ controller_user_src }}"
         controller_password: "{{ controller_pwd_src }}"
         # controller"_oauthtoken: "{{ controller_token_src }}"
-        validate_certs: False
+        validate_certs: false
       register: controller_projects
       tags: Projects
 
@@ -171,7 +171,7 @@
         controller_username: "{{ controller_user_dest }}"
         controller_password: "{{ controller_pwd_dest }}"
         # controller"_oauthtoken: "{{ controller_token_dest }}"
-        validate_certs: False
+        validate_certs: false
       tags: Projects
 
     - name: Export Controller Inventory
@@ -181,7 +181,7 @@
         controller_username: "{{ controller_user_src }}"
         controller_password: "{{ controller_pwd_src }}"
         # controller"_oauthtoken: "{{ controller_token_src }}"
-        validate_certs: False
+        validate_certs: false
       register: controller_inventory
       tags: Inventory
 
@@ -192,7 +192,7 @@
         controller_username: "{{ controller_user_dest }}"
         controller_password: "{{ controller_pwd_dest }}"
         # controller"_oauthtoken: "{{ controller_token_dest }}"
-        validate_certs: False
+        validate_certs: false
       tags: Inventory
 
     - name: Export Controller Inventory Sources
@@ -202,7 +202,7 @@
         controller_username: "{{ controller_user_src }}"
         controller_password: "{{ controller_pwd_src }}"
         # controller"_oauthtoken: "{{ controller_token_src }}"
-        validate_certs: False
+        validate_certs: false
       register: controller_inventory_sources
       tags: Inventory Sources
 
@@ -213,7 +213,7 @@
         controller_username: "{{ controller_user_dest }}"
         controller_password: "{{ controller_pwd_dest }}"
         # controller"_oauthtoken: "{{ controller_token_dest }}"
-        validate_certs: False
+        validate_certs: false
       tags: Inventory Sources
 
     - name: Export Controller Job Templates
@@ -223,7 +223,7 @@
         controller_username: "{{ controller_user_src }}"
         controller_password: "{{ controller_pwd_src }}"
         # controller"_oauthtoken: "{{ controller_token_src }}"
-        validate_certs: False
+        validate_certs: false
       register: controller_job_templates
       tags: Job Templates
 
@@ -234,7 +234,7 @@
         controller_username: "{{ controller_user_dest }}"
         controller_password: "{{ controller_pwd_dest }}"
         # controller"_oauthtoken: "{{ controller_token_dest }}"
-        validate_certs: False
+        validate_certs: false
       tags: Job Templates
 
     - name: Export Controller Workflow Job Templates
@@ -244,7 +244,7 @@
         controller_username: "{{ controller_user_src }}"
         controller_password: "{{ controller_pwd_src }}"
         # controller"_oauthtoken: "{{ controller_token_src }}"
-        validate_certs: False
+        validate_certs: false
       register: controller_workflow_job_templates
       tags: Workflow Job Templates
 
@@ -255,7 +255,7 @@
         controller_username: "{{ controller_user_dest }}"
         controller_password: "{{ controller_pwd_dest }}"
         # controller"_oauthtoken: "{{ controller_token_dest }}"
-        validate_certs: False
+        validate_certs: false
       tags: Workflow Job Templates
 
     - name: Export Controller Schedules
@@ -265,7 +265,7 @@
         controller_username: "{{ controller_user_src }}"
         controller_password: "{{ controller_pwd_src }}"
         # controller"_oauthtoken: "{{ controller_token_src }}"
-        validate_certs: False
+        validate_certs: false
       register: controller_schedules
       tags: Schedules
 
@@ -276,5 +276,5 @@
         controller_username: "{{ controller_user_dest }}"
         controller_password: "{{ controller_pwd_dest }}"
         # controller"_oauthtoken: "{{ controller_token_dest }}"
-        validate_certs: False
+        validate_certs: false
       tags: Schedules

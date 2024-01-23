@@ -12,8 +12,8 @@
         controller_host: "{{ controller_host_src }}"
         controller_username: "{{ controller_user_src }}"
         controller_password: "{{ controller_pwd_src }}"
-        #controller_oauthtoken: "{{ controller_token_src }}"
-        validate_certs: False
+        # controller_oauthtoken: "{{ controller_token_src }}"
+        validate_certs: false
       register: controller_all_assets
 
     - name: Import All Controller assets
@@ -22,5 +22,5 @@
         controller_host: "{{ controller_host_dest }}"
         controller_username: "{{ controller_user_dest }}"
         controller_password: "{{ controller_pwd_dest }}"
-        #controller_oauthtoken: "{{ controller_token_dest }}"
-        validate_certs: False
+        # controller_oauthtoken: "{{ controller_token_dest }}"
+        validate_certs: false
