@@ -29,7 +29,7 @@
         controller_host: "{{ controller_host_src }}"
         controller_username: "{{ controller_user_src }}"
         controller_password: "{{ controller_pwd_src }}"
-        #controller_oauthtoken: "{{ controller_token_src }}"
+        # controller_oauthtoken: "{{ controller_token_src }}"
         validate_certs: false
       register: export_all_results
 
