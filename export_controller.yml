@@ -30,10 +30,11 @@
         controller_username: "{{ controller_user_src }}"
         controller_password: "{{ controller_pwd_src }}"
         #controller_oauthtoken: "{{ controller_token_src }}"
-        validate_certs: False
+        validate_certs: false
       register: export_all_results
 
     - name: Export all assets to file {{ output_filename }}
-      copy:
-        content: "{{ export_all_results | to_nice_yaml( width=50, explicit_start=True, explicit_end=True) }}"
+      ansible.builtin.copy:
+        content: "{{ export_all_results | to_nice_yaml(width=50, explicit_start=True, explicit_end=True) }}"
         dest: "{{ output_filename }}"
+        mode: '0644'

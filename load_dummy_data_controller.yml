@@ -13,15 +13,15 @@
         - UserD
         - UserE
       awx.awx.user:
-        email: "{{item}}@example.com"
-        first_name: "First{{item}}"
-        last_name: "Last{{item}}"
-        password: "MyPastWurd{{item}}"   # notsecret
-        username: "{{item}}"
-        controller_host: "{{controller_host_src}}"
-        controller_username: "{{controller_user_src}}"
-        controller_password: "{{controller_pwd_src}}"
-        #controller_oauthtoken: "{{controller_token_src}}"
+        email: "{{ item }}@example.com"
+        first_name: "First{{ item }}"
+        last_name: "Last{{ item }}"
+        password: "MyPastWurd{{ item }}"   # notsecret
+        username: "{{ item }}"
+        controller_host: "{{ controller_host_src }}"
+        controller_username: "{{ controller_user_src }}"
+        controller_password: "{{ controller_pwd_src }}"
+        # controller_oauthtoken: "{{ controller_token_src }}"
         validate_certs: False
       tags: Users
 
@@ -30,16 +30,16 @@
         - SuperUserA
         - SuperUserB
       awx.awx.user:
-        email: "{{item}}@example.com"
-        first_name: "First{{item}}"
+        email: "{{ item }}@example.com"
+        first_name: "First{{ item }}"
         is_superuser: true
-        last_name: "Last{{item}}"
-        password: "MyPastWurd{{item}}"    # notsecret
-        username: "{{item}}"
-        controller_host: "{{controller_host_src}}"
-        controller_username: "{{controller_user_src}}"
-        controller_password: "{{controller_pwd_src}}"
-        #controller_oauthtoken: "{{controller_token_src}}"
+        last_name: "Last{{ item }}"
+        password: "MyPastWurd{{ item }}"    # notsecret
+        username: "{{ item }}"
+        controller_host: "{{ controller_host_src }}"
+        controller_username: "{{ controller_user_src }}"
+        controller_password: "{{ controller_pwd_src }}"
+        # controller_oauthtoken: "{{ controller_token_src }}"
         validate_certs: False
       tags: Users
 
@@ -51,13 +51,12 @@
         - TestOrg4
         - TestOrg5
       awx.awx.organization:
-        name: "{{ item }}"
         description: "example description for organization {{ item }}"
         name: "{{ item }}"
-        controller_host: "{{controller_host_src}}"
-        controller_username: "{{controller_user_src}}"
-        controller_password: "{{controller_pwd_src}}"
-        #controller_oauthtoken: "{{controller_token_src}}"
+        controller_host: "{{ controller_host_src }}"
+        controller_username: "{{ controller_user_src }}"
+        controller_password: "{{ controller_pwd_src }}"
+        # controller_oauthtoken: "{{ controller_token_src }}"
         validate_certs: False
       tags:
       - Organizations
@@ -73,9 +72,9 @@
         name: "{{ item }}"
         description: "example description for team {{ item }}"
         organization: "TestOrg1"
-        controller_host: "{{controller_host_src}}"
-        controller_username: "{{controller_user_src}}"
-        controller_password: "{{controller_pwd_src}}"
-        #controller_oauthtoken: "{{controller_token_src}}"
+        controller_host: "{{ controller_host_src }}"
+        controller_username: "{{ controller_user_src }}"
+        controller_password: "{{ controller_pwd_src }}"
+        # controller_oauthtoken: "{{ controller_token_src }}"
         validate_certs: False
       tags: Teams
