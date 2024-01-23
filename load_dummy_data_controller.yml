@@ -42,3 +42,40 @@
         #controller_oauthtoken: "{{controller_token_src}}"
         validate_certs: False
       tags: Users
+
+    - name: Add Organizations
+      loop:
+        - TestOrg1
+        - TestOrg2
+        - TestOrg3
+        - TestOrg4
+        - TestOrg5
+      awx.awx.organization:
+        name: "{{ item }}"
+        description: "example description for organization {{ item }}"
+        name: "{{ item }}"
+        controller_host: "{{controller_host_src}}"
+        controller_username: "{{controller_user_src}}"
+        controller_password: "{{controller_pwd_src}}"
+        #controller_oauthtoken: "{{controller_token_src}}"
+        validate_certs: False
+      tags:
+      - Organizations
+      - Teams
+
+    - name: Add Teams
+      loop:
+        - Team1
+        - Team2
+        - Team3
+        - Team4
+      awx.awx.team:
+        name: "{{ item }}"
+        description: "example description for team {{ item }}"
+        organization: "TestOrg1"
+        controller_host: "{{controller_host_src}}"
+        controller_username: "{{controller_user_src}}"
+        controller_password: "{{controller_pwd_src}}"
+        #controller_oauthtoken: "{{controller_token_src}}"
+        validate_certs: False
+      tags: Teams
