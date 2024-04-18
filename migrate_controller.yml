@@ -51,6 +51,7 @@
     - name: Export Controller Organizations
       awx.awx.export:
         organizations: ['all']
+#        organizations: ['TestOrg1','TestOrg2','TestOrg3','TestOrg4']
         controller_host: "{{ controller_host_src }}"
         controller_username: "{{ controller_user_src }}"
         controller_password: "{{ controller_pwd_src }}"
