@@ -2,9 +2,31 @@
 
 A set of tools for use with Ansible Automation Platform (AAP).
 
-## Install required Python - awxkit
+## Ensure python version is a minimum of 3.9
 ```bash
-pip3 install -r requirements.txt
+ python3 --version
+```
+If you have an older python version, install a newer version.
+
+## Ensure Ansible tooling is installed
+```bash
+python3 -m pip install ansible
+```
+
+## Clone this repo
+```bash
+git clone https://github.com/chrisahl/ansible-tools.git
+```
+
+## Change to the cloned repo directory
+```bash
+cd ansible-tools
+```
+
+## Setup a Python virtual environment
+```bash
+python3 -m venv venv
+source venv/bin/activate
 ```
 
 ## Install required Ansible collection - awx.awx
